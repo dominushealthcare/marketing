@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./products-data.js"></script>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./responsive.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Products | Dominus Healthcare</title>
+<meta name="description" content="Filter the Dominus Healthcare product catalogue by therapy area, composition, form and presentation.">
+<link rel="canonical" href="https://www.dominushealthcare.com/products">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Products | Dominus Healthcare">
+<meta property="og:description" content="Dominus Healthcare product catalogue across diabetes, cardiovascular, nutrition, gastro, CNS and dermatology.">
+<meta property="og:url" content="https://www.dominushealthcare.com/products">
+<meta property="og:image" content="https://www.dominushealthcare.com/assets/dominus-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f6f4ef;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}a{color:#00b1ff;text-decoration:none}</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;color:#fff;background:transparent;">
+  <dc-import name="molecule-field" style="position:fixed;inset:0;z-index:-1;pointer-events:none;" hint-size="100%,100%"></dc-import>
+  <div style="position:sticky;top:0;z-index:50;"><dc-import name="site-nav" active="products" hint-size="100%,78px"></dc-import></div>
+  <main class="inner-light-page">
+    <section style="max-width:1240px;margin:0 auto;padding:72px 48px 8px;">
+      <div style="font:600 12px 'Manrope';letter-spacing:.24px;text-transform:uppercase;color:#b1a6f6;margin-bottom:18px;">Product catalogue</div>
+      <h1 style="margin:0;font:700 66px/1 'Manrope';letter-spacing:-2.64px;color:#fff;">Every brand, in one place.</h1>
+      <p style="margin:24px 0 0;font:500 18px/1.44 'Manrope';color:#f4f4f6;max-width:720px;">Filter the portfolio by therapy area. Each brand shows composition, dosage form and presentation. Prescription products are intended for registered medical practitioners in India.</p>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:36px 48px 0;">
+      <div id="filters" style="display:flex;flex-wrap:wrap;gap:8px;">
+        <button data-filter="all" style="cursor:pointer;font:600 14px 'Manrope';color:#fff;background:#5350cc;border:none;padding:10px 20px;border-radius:9999px;">All products</button>
+        <button data-filter="diabetes" style="cursor:pointer;font:500 14px 'Manrope';color:#b1a6f6;background:transparent;border:1px solid #4846c6;padding:10px 20px;border-radius:9999px;">Diabetes</button>
+        <button data-filter="cardio" style="cursor:pointer;font:500 14px 'Manrope';color:#b1a6f6;background:transparent;border:1px solid #4846c6;padding:10px 20px;border-radius:9999px;">Cardiovascular</button>
+        <button data-filter="nutrition" style="cursor:pointer;font:500 14px 'Manrope';color:#b1a6f6;background:transparent;border:1px solid #4846c6;padding:10px 20px;border-radius:9999px;">Nutrition</button>
+        <button data-filter="gastro" style="cursor:pointer;font:500 14px 'Manrope';color:#b1a6f6;background:transparent;border:1px solid #4846c6;padding:10px 20px;border-radius:9999px;">Gastro</button>
+        <button data-filter="cns" style="cursor:pointer;font:500 14px 'Manrope';color:#b1a6f6;background:transparent;border:1px solid #4846c6;padding:10px 20px;border-radius:9999px;">CNS</button>
+        <button data-filter="derma" style="cursor:pointer;font:500 14px 'Manrope';color:#b1a6f6;background:transparent;border:1px solid #4846c6;padding:10px 20px;border-radius:9999px;">Dermatology</button>
+      </div>
+      <div style="margin-top:16px;font:500 12px 'Manrope';color:#9494a9;letter-spacing:.24px;">Compositions shown are subject to final QA and regulatory verification before publication.</div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:28px 48px 40px;"><div id="product-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;"></div></section>
+    <section style="max-width:1240px;margin:0 auto;padding:16px 48px 72px;"><div style="background:#232269;border:1px solid #4846c6;border-radius:20px;padding:24px 28px;display:flex;gap:18px;align-items:flex-start;"><span style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9999px;border:1.5px solid #00b1ff;font:700 16px 'Manrope';color:#00b1ff;">Rx</span><p style="margin:0;font:500 14px/1.6 'Manrope';color:#d8d8e3;max-width:900px;">Prescription products are to be sold on the prescription of a registered medical practitioner. Product information on this site is intended for healthcare professionals in India and is not a substitute for professional medical advice.</p></div></section>
+  </main>
+  <dc-import name="site-footer" hint-size="100%,340px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    (function(){
+  var products=[],grid=document.getElementById("product-grid"),buttons=[].slice.call(document.querySelectorAll("[data-filter]")),active=new URLSearchParams(location.search).get("area")||"all";
+  function loadProducts(done){
+    if(window.DOMINUS_PRODUCTS&&window.DOMINUS_PRODUCTS.length){products=window.DOMINUS_PRODUCTS;done();return;}
+    fetch("products-data.js").then(function(r){return r.text();}).then(function(text){
+      var box={};
+      Function("window",text+";return window.DOMINUS_PRODUCTS||[];")(box);
+      products=box.DOMINUS_PRODUCTS||[];
+      done();
+    }).catch(function(){grid.innerHTML='<div style="grid-column:1/-1;background:#232269;border:1px solid #4846c6;border-radius:20px;padding:28px;font:600 16px Manrope;color:#fff;">Product data could not be loaded.</div>';});
+  }
+  function esc(v){return String(v||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
+  function card(p){var img=p.image?'<div style="background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;aspect-ratio:16/10;"><img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>':'<div style="background:#16165c;border:1px dashed #4846c6;border-radius:12px;margin-bottom:16px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:#b1a6f6;font:600 13px Manrope;">Image pending</div>';return '<a data-card data-area="'+esc(p.area)+'" href="product.html?p='+encodeURIComponent(p.slug)+'" style="background:#232269;border:1px solid #4846c6;border-radius:20px;padding:24px;display:flex;flex-direction:column;text-decoration:none;">'+img+'<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;"><span style="font:600 11px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#b1a6f6;">'+esc(p.areaLabel)+'</span><span style="font:600 11px Manrope;color:#00b1ff;border:1px solid #00b1ff;padding:3px 10px;border-radius:9999px;white-space:nowrap;">'+esc(p.tag)+'</span></div><div style="font:700 22px Manrope;letter-spacing:-.66px;color:#fff;">'+esc(p.name)+'</div><div style="margin:8px 0 16px;font:500 14px/1.5 Manrope;color:#d8d8e3;flex:1;">'+esc(p.composition)+'</div><div style="display:flex;gap:14px;padding-top:14px;border-top:1px solid #4846c6;"><div><div style="font:500 10px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#9494a9;">Form</div><div style="font:600 13px Manrope;color:#f4f4f6;margin-top:3px;">'+esc(p.form)+'</div></div><div><div style="font:500 10px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#9494a9;">Pack</div><div style="font:600 13px Manrope;color:#f4f4f6;margin-top:3px;">'+esc(p.pack)+'</div></div></div></a>';}
+  function state(filter){buttons.forEach(function(b){var on=b.dataset.filter===filter;b.style.background=on?"#5350cc":"transparent";b.style.color=on?"#fff":"#b1a6f6";b.style.border=on?"none":"1px solid #4846c6";b.style.fontWeight=on?"600":"500";});}
+  function render(filter){grid.innerHTML=(filter==="all"?products:products.filter(function(p){return p.area===filter;})).map(card).join("");state(filter);}
+  buttons.forEach(function(b){b.addEventListener("click",function(){active=b.dataset.filter;history.replaceState(null,"",active==="all"?"products.html":"products.html?area="+encodeURIComponent(active));render(active);});});
+  loadProducts(function(){render(active);});
+    })();
+  }
+  renderVals(){ return {}; }
+}
+</script>
+</body>
+</html>

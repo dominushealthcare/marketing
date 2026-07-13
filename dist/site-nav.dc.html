@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6HZW7T72MJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-6HZW7T72MJ');
+(function(){
+  var CLARITY_ID = 'xlpdne5llq';
+  if(!CLARITY_ID) return;
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CLARITY_ID);
+})();
+</script>
+</helmet>
+<div class="site-nav" style="display:flex; align-items:center; justify-content:space-between; padding:20px 48px; background:rgba(22,22,92,0.82); backdrop-filter:blur(14px); border-bottom:1px solid #4846c6; font-family:'Manrope', sans-serif;">
+  <a class="site-nav-brand" href="index.html" data-nav="home" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+    <img src="assets/dominus-mark.png" alt="Dominus Healthcare" style="height:34px; width:auto; display:block;">
+    <span class="site-nav-brandline" style="display:flex; align-items:baseline; gap:7px;"><span style="font:700 20px 'Manrope'; letter-spacing:-0.03em; color:#ffffff;">Dominus</span><span style="font:600 12px 'Manrope'; letter-spacing:0.18em; text-transform:uppercase; color:#b1a6f6;">Healthcare</span></span>
+  </a>
+  <div class="site-nav-links" style="display:flex; align-items:center; gap:34px;">
+    <a href="therapies.html" data-nav="therapies" style="font:500 15px 'Manrope'; color:#ffffff; text-decoration:none;" style-hover="color:#00b1ff;">Therapies</a>
+    <a href="products.html" data-nav="products" style="font:500 15px 'Manrope'; color:#ffffff; text-decoration:none;" style-hover="color:#00b1ff;">Products</a>
+    <a href="about.html" data-nav="about" style="font:500 15px 'Manrope'; color:#ffffff; text-decoration:none;" style-hover="color:#00b1ff;">About</a>
+    <a href="contact.html" data-nav="contact" style="font:500 15px 'Manrope'; color:#ffffff; text-decoration:none;" style-hover="color:#00b1ff;">Contact</a>
+  </div>
+  <a class="site-nav-cta" href="partner.html" style="display:inline-flex; align-items:center; padding:12px 22px; background:#5350cc; color:#ffffff; border-radius:9999px; font:600 15px 'Manrope'; text-decoration:none; box-shadow:0 0 20px rgba(60,57,185,0.5);" style-hover="background:#5f5cd8;">Partner with us</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;80px&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;home&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;therapies&quot;,&quot;products&quot;,&quot;about&quot;,&quot;partner&quot;,&quot;contact&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = this.el || document;
+    const active = this.props.active || 'home';
+    const link = root.querySelector('[data-nav="' + active + '"]');
+    if (link && active !== 'home') {
+      link.style.color = '#00b1ff';
+      link.style.fontWeight = '700';
+    }
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
