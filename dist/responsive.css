@@ -544,6 +544,23 @@ span {
   border-color: #d8d8e3;
 }
 
+.home-portfolio-light {
+  text-align: center;
+}
+
+.home-portfolio-light > p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.home-portfolio-light > div:last-child {
+  text-align: left;
+}
+
+.home-portfolio-light .brand-logo-chip {
+  box-shadow: 0 12px 30px rgba(22, 22, 92, 0.08);
+}
+
 @media (max-width: 420px) {
   .home-light-band h2 {
     font-size: 32px !important;
