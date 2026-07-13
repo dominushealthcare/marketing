@@ -576,3 +576,117 @@ span {
     line-height: 1.1 !important;
   }
 }
+
+/* Lightweight motion system: reveal depth, tactile controls, no layout thrash. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .motion-ready .motion-reveal {
+    transition:
+      opacity 720ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 720ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      filter 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--motion-delay, 0ms);
+  }
+
+  .motion-ready .motion-reveal:not(.is-visible) {
+    filter: blur(8px);
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+    will-change: opacity, transform, filter;
+  }
+
+  .motion-ready .motion-reveal.is-visible {
+    filter: blur(0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  .site-nav {
+    transition: border-color 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+  }
+
+  .site-nav:hover {
+    border-color: rgba(0, 177, 255, 0.48) !important;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+  }
+
+  a,
+  button,
+  .brand-logo-chip,
+  [data-card],
+  a[href*="product.html?p="] {
+    transition:
+      transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 280ms ease,
+      border-color 280ms ease,
+      background-color 280ms ease,
+      color 280ms ease;
+  }
+
+  a[style*="border-radius:9999px"]:hover,
+  a[style*="border-radius: 9999px"]:hover,
+  button:hover {
+    box-shadow: 0 16px 34px rgba(83, 80, 204, 0.24);
+    transform: translateY(-2px);
+  }
+
+  .brand-logo-chip:hover {
+    border-color: rgba(0, 177, 255, 0.56);
+    box-shadow: 0 18px 42px rgba(22, 22, 92, 0.18);
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  [data-card]:hover,
+  a[href*="product.html?p="]:hover {
+    box-shadow: 0 22px 54px rgba(22, 22, 92, 0.18);
+    transform: translateY(-6px);
+  }
+
+  a[href*="product.html?p="] img,
+  .brand-logo-chip img,
+  .site-nav-brand img,
+  .site-footer img {
+    transition: transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 280ms ease;
+  }
+
+  a[href*="product.html?p="]:hover img {
+    transform: scale(1.035);
+  }
+
+  .site-nav-brand:hover img,
+  .site-footer img:hover {
+    filter: saturate(1.08);
+    transform: rotate(-2deg) scale(1.04);
+  }
+
+  h1 span[style*="border:1px dashed"],
+  h1 span[style*="border: 1px dashed"] {
+    animation: motion-accent-pop 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 420ms both;
+  }
+
+  @keyframes motion-accent-pop {
+    from {
+      box-shadow: 0 0 0 rgba(0, 177, 255, 0);
+      transform: translateY(8px) scale(0.96);
+    }
+
+    to {
+      box-shadow: 0 0 34px rgba(0, 177, 255, 0.18);
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

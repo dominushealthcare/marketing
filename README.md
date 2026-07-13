@@ -30,6 +30,7 @@ portable hosting and predictable URLs.
 | `product-meta.js` | Product detail title, canonical and social metadata updater |
 | `forms.js` | Shared contact and partner form submission handler |
 | `responsive.css` | Responsive layout fixes and homepage light-band styling |
+| `motion.js` | Lightweight reveal and hover motion shared by public routes |
 | `support.js` | Runtime required for `.dc.html` component imports |
 | `assets/` | Logos, product artwork, team images and brand logo crops |
 | `robots.txt` / `sitemap.xml` | Search crawl configuration |
@@ -67,7 +68,9 @@ the endpoint changes.
 Product artwork is served through WebP-first `<picture>` markup with optimized
 PNG fallbacks. Keep the local `assets/fonts/` and `assets/vendor/` files in
 place so fonts and React load from the same GitHub Pages origin. Analytics are
-delayed until after initial load to protect first paint.
+delayed until after initial load to protect first paint. `motion.js` uses
+IntersectionObserver and CSS transform/opacity effects only, and respects
+`prefers-reduced-motion`.
 
 ## Deployment
 
@@ -78,6 +81,7 @@ production files at the repository root:
 - `.dc.html` shared components
 - `support.js`
 - `responsive.css`
+- `motion.js`
 - `products-data.js`
 - `product-meta.js`
 - `forms.js`
