@@ -76,15 +76,17 @@ production files at the repository root:
 - `forms.js`
 - `assets/`
 - `.nojekyll`
+- `CNAME`
 - `robots.txt`
 - `sitemap.xml`
 
-Keep `.nojekyll` present so files are served as-is.
+Keep `.nojekyll` present so files are served as-is. Keep `CNAME` present with
+`dominushealthcare.com` so GitHub Pages continues serving the custom domain.
 
 ## Production Checklist
 
-- Canonical URLs point to `https://www.dominushealthcare.com/`.
-- Sitemap product details use `https://www.dominushealthcare.com/product?p=<slug>`.
+- Canonical URLs point to `https://dominushealthcare.com/`.
+- Sitemap product details use `https://dominushealthcare.com/product?p=<slug>`.
 - Public links use lowercase route files.
 - Mixed-case route files are absent; public links use lowercase routes only.
 - Product catalogue/detail data is edited in `products-data.js`.

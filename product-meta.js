@@ -25,9 +25,9 @@
 
   function applyMeta(product) {
     var title = product.name + " | Dominus Healthcare";
-    var url = "https://www.dominushealthcare.com/product?p=" + encodeURIComponent(product.slug);
+    var url = "https://dominushealthcare.com/product?p=" + encodeURIComponent(product.slug);
     var description = product.name + " - " + product.composition + ". " + product.headline;
-    var image = "https://www.dominushealthcare.com/" + (product.image || "assets/dominus-logo.png");
+    var image = "https://dominushealthcare.com/" + (product.image || "assets/dominus-logo.png");
 
     if (document.title !== title) document.title = title;
     document.documentElement.setAttribute("data-dominus-product-meta", product.slug);
