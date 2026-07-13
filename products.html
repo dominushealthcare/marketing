@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./products-data.js"></script>
+<link rel="preload" href="./assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/vendor/react.production.min.js" as="script">
+<link rel="preload" href="./assets/vendor/react-dom.production.min.js" as="script">
+<script src="./products-data.js" defer></script>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="./responsive.css">
 </head>
@@ -19,9 +22,6 @@
 <meta property="og:url" content="https://dominushealthcare.com/products">
 <meta property="og:image" content="https://dominushealthcare.com/assets/dominus-logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f6f4ef;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}a{color:#00b1ff;text-decoration:none}</style>
 </helmet>
 <div style="font-family:'Manrope',sans-serif;color:#fff;background:transparent;">
@@ -66,7 +66,8 @@ class Component extends DCLogic {
     }).catch(function(){grid.innerHTML='<div style="grid-column:1/-1;background:#232269;border:1px solid #4846c6;border-radius:20px;padding:28px;font:600 16px Manrope;color:#fff;">Product data could not be loaded.</div>';});
   }
   function esc(v){return String(v||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
-  function card(p){var img=p.image?'<div style="background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;aspect-ratio:16/10;"><img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>':'<div style="background:#16165c;border:1px dashed #4846c6;border-radius:12px;margin-bottom:16px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:#b1a6f6;font:600 13px Manrope;">Image pending</div>';return '<a data-card data-area="'+esc(p.area)+'" href="product.html?p='+encodeURIComponent(p.slug)+'" style="background:#232269;border:1px solid #4846c6;border-radius:20px;padding:24px;display:flex;flex-direction:column;text-decoration:none;">'+img+'<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;"><span style="font:600 11px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#b1a6f6;">'+esc(p.areaLabel)+'</span><span style="font:600 11px Manrope;color:#00b1ff;border:1px solid #00b1ff;padding:3px 10px;border-radius:9999px;white-space:nowrap;">'+esc(p.tag)+'</span></div><div style="font:700 22px Manrope;letter-spacing:-.66px;color:#fff;">'+esc(p.name)+'</div><div style="margin:8px 0 16px;font:500 14px/1.5 Manrope;color:#d8d8e3;flex:1;">'+esc(p.composition)+'</div><div style="display:flex;gap:14px;padding-top:14px;border-top:1px solid #4846c6;"><div><div style="font:500 10px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#9494a9;">Form</div><div style="font:600 13px Manrope;color:#f4f4f6;margin-top:3px;">'+esc(p.form)+'</div></div><div><div style="font:500 10px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#9494a9;">Pack</div><div style="font:600 13px Manrope;color:#f4f4f6;margin-top:3px;">'+esc(p.pack)+'</div></div></div></a>';}
+  function webp(v){return String(v||"").replace(/\.png$/i,".webp");}
+  function card(p){var img=p.image?'<div style="background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;aspect-ratio:16/10;"><picture style="display:block;width:100%;height:100%;"><source srcset="'+esc(webp(p.image))+'" type="image/webp"><img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"></picture></div>':'<div style="background:#16165c;border:1px dashed #4846c6;border-radius:12px;margin-bottom:16px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:#b1a6f6;font:600 13px Manrope;">Image pending</div>';return '<a data-card data-area="'+esc(p.area)+'" href="product.html?p='+encodeURIComponent(p.slug)+'" style="background:#232269;border:1px solid #4846c6;border-radius:20px;padding:24px;display:flex;flex-direction:column;text-decoration:none;">'+img+'<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;"><span style="font:600 11px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#b1a6f6;">'+esc(p.areaLabel)+'</span><span style="font:600 11px Manrope;color:#00b1ff;border:1px solid #00b1ff;padding:3px 10px;border-radius:9999px;white-space:nowrap;">'+esc(p.tag)+'</span></div><div style="font:700 22px Manrope;letter-spacing:-.66px;color:#fff;">'+esc(p.name)+'</div><div style="margin:8px 0 16px;font:500 14px/1.5 Manrope;color:#d8d8e3;flex:1;">'+esc(p.composition)+'</div><div style="display:flex;gap:14px;padding-top:14px;border-top:1px solid #4846c6;"><div><div style="font:500 10px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#9494a9;">Form</div><div style="font:600 13px Manrope;color:#f4f4f6;margin-top:3px;">'+esc(p.form)+'</div></div><div><div style="font:500 10px Manrope;letter-spacing:.16em;text-transform:uppercase;color:#9494a9;">Pack</div><div style="font:600 13px Manrope;color:#f4f4f6;margin-top:3px;">'+esc(p.pack)+'</div></div></div></a>';}
   function state(filter){buttons.forEach(function(b){var on=b.dataset.filter===filter;b.style.background=on?"#5350cc":"transparent";b.style.color=on?"#fff":"#b1a6f6";b.style.border=on?"none":"1px solid #4846c6";b.style.fontWeight=on?"600":"500";});}
   function render(filter){grid.innerHTML=(filter==="all"?products:products.filter(function(p){return p.area===filter;})).map(card).join("");state(filter);}
   buttons.forEach(function(b){b.addEventListener("click",function(){active=b.dataset.filter;history.replaceState(null,"",active==="all"?"products.html":"products.html?area="+encodeURIComponent(active));render(active);});});

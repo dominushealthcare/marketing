@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" href="./assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/vendor/react.production.min.js" as="script">
+<link rel="preload" href="./assets/vendor/react-dom.production.min.js" as="script">
 <script src="./support.js"></script>
 <link rel="stylesheet" href="./responsive.css">
 </head>
@@ -27,9 +30,6 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Corporation","name":"Dominus Healthcare Private Limited","alternateName":"Dominus Healthcare","url":"https://dominushealthcare.com/","logo":"https://dominushealthcare.com/assets/dominus-logo.png","foundingDate":"2018","slogan":"Medicine that reaches the people who need it.","description":"Bengaluru-based pharmaceutical company with 20+ brands across cardio-diabetic and general therapeutic segments, manufactured at WHO-GMP certified facilities.","identifier":{"@type":"PropertyValue","name":"CIN","value":"U24299KA2018PTC115535"},"address":{"@type":"PostalAddress","streetAddress":"Plot No 791-L7-A, KIABD Industrial Area, Harohalli, Phase 3, Kanakpura Taluk","addressLocality":"Bengaluru","addressRegion":"Karnataka","postalCode":"562112","addressCountry":"IN"},"contactPoint":{"@type":"ContactPoint","telephone":"+91-8277579999","contactType":"customer service","email":"info@dominushealthcare.com"}}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -129,10 +129,10 @@
         <div style="font:700 26px 'Manrope'; color:#ffffff; letter-spacing:-0.78px;">Cardio-Diabetic</div>
         <p style="margin:14px 0 22px; font:500 15px/1.5 'Manrope'; color:#d8d8e3;">India carries one of the world's largest diabetic and hypertensive populations. Our Gliminus, Vibesta, Ultiglipt, Telminus and Ultiros ranges span the full treatment ladder — from monotherapy through fixed-dose triple combinations.</p>
         <div class="brand-logo-strip">
-          <span class="brand-logo-chip"><img src="assets/brand-logos/gliminus.png" alt="Gliminus"></span>
-          <span class="brand-logo-chip"><img src="assets/brand-logos/telminus.png" alt="Telminus"></span>
-          <span class="brand-logo-chip"><img src="assets/brand-logos/ultiglipt.png" alt="Ultiglipt"></span>
-          <span class="brand-logo-chip"><img src="assets/brand-logos/vibesta-m.png" alt="Vibesta-M"></span>
+          <span class="brand-logo-chip"><img loading="lazy" decoding="async" src="assets/brand-logos/gliminus.png" alt="Gliminus"></span>
+          <span class="brand-logo-chip"><img loading="lazy" decoding="async" src="assets/brand-logos/telminus.png" alt="Telminus"></span>
+          <span class="brand-logo-chip"><img loading="lazy" decoding="async" src="assets/brand-logos/ultiglipt.png" alt="Ultiglipt"></span>
+          <span class="brand-logo-chip"><img loading="lazy" decoding="async" src="assets/brand-logos/vibesta-m.png" alt="Vibesta-M"></span>
         </div>
         <a href="therapies.html" style="font:600 15px 'Manrope'; color:#00b1ff;">Explore cardio-diabetic →</a>
       </div>
@@ -140,10 +140,10 @@
         <div style="font:700 26px 'Manrope'; color:#ffffff; letter-spacing:-0.78px;">General &amp; Nutrition</div>
         <p style="margin:14px 0 22px; font:500 15px/1.5 'Manrope'; color:#d8d8e3;">From vitamin D deficiency to diabetic foot care to protein supplementation, our general segment addresses the conditions that quietly compound over a lifetime.</p>
         <div class="brand-logo-strip">
-          <span class="brand-logo-chip is-wide"><img src="assets/brand-logos/mylicare-d.png" alt="Mylicare-D"></span>
-          <span class="brand-logo-chip is-wide"><img src="assets/brand-logos/nuproten-d.png" alt="Nuproten-D"></span>
-          <span class="brand-logo-chip"><img src="assets/brand-logos/nufeet.png" alt="Nufeet"></span>
-          <span class="brand-logo-chip"><img src="assets/brand-logos/sunify-60k.png" alt="Sunify 60K"></span>
+          <span class="brand-logo-chip is-wide"><img loading="lazy" decoding="async" src="assets/brand-logos/mylicare-d.png" alt="Mylicare-D"></span>
+          <span class="brand-logo-chip is-wide"><img loading="lazy" decoding="async" src="assets/brand-logos/nuproten-d.png" alt="Nuproten-D"></span>
+          <span class="brand-logo-chip"><img loading="lazy" decoding="async" src="assets/brand-logos/nufeet.png" alt="Nufeet"></span>
+          <span class="brand-logo-chip"><img loading="lazy" decoding="async" src="assets/brand-logos/sunify-60k.png" alt="Sunify 60K"></span>
         </div>
         <a href="therapies.html" style="font:600 15px 'Manrope'; color:#00b1ff;">Explore general segment →</a>
       </div>
@@ -185,11 +185,11 @@
     <div data-reveal style="font:600 12px 'Manrope'; letter-spacing:0.24px; text-transform:uppercase; color:#b1a6f6; margin-bottom:14px;">Featured brands</div>
     <h2 data-reveal style="margin:0 0 28px; font:700 42px/1 'Manrope'; letter-spacing:-1.68px; color:#ffffff;">Brands prescribers reach for.</h2>
     <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px;">
-      <a href="product.html?p=nudapa-10" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><img src="assets/products/nudapa-10.png" alt="Nudapa-10" style="width:100%; height:100%; object-fit:cover; display:block;"></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Nudapa-10</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Dapagliflozin 10 mg</div></div></a>
-      <a href="product.html?p=telminus-trio" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><img src="assets/products/telminus-trio.png" alt="Telminus Trio" style="width:100%; height:100%; object-fit:cover; display:block;"></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Telminus Trio</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Triple antihypertensive</div></div></a>
-      <a href="product.html?p=ultiros-gold" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><img src="assets/products/ultiros-gold.png" alt="Ultiros Gold" style="width:100%; height:100%; object-fit:cover; display:block;"></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Ultiros Gold</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Rosuvastatin FDC</div></div></a>
-      <a href="product.html?p=mylicare-d" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><img src="assets/products/mylicare-d.png" alt="Mylicare-D" style="width:100%; height:100%; object-fit:cover; display:block;"></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Mylicare-D</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Nerve rejuvenator</div></div></a>
-      <a href="product.html?p=nuvinus-4g" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><img src="assets/products/nuvinus-4g.png" alt="Nuvinus-4G" style="width:100%; height:100%; object-fit:cover; display:block;"></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Nuvinus-4G</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">50+ nutrient formula</div></div></a>
+      <a href="product.html?p=nudapa-10" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><picture style="display:block; width:100%; height:100%;"><source srcset="assets/products/nudapa-10.webp" type="image/webp"><img src="assets/products/nudapa-10.png" alt="Nudapa-10" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"></picture></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Nudapa-10</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Dapagliflozin 10 mg</div></div></a>
+      <a href="product.html?p=telminus-trio" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><picture style="display:block; width:100%; height:100%;"><source srcset="assets/products/telminus-trio.webp" type="image/webp"><img src="assets/products/telminus-trio.png" alt="Telminus Trio" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"></picture></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Telminus Trio</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Triple antihypertensive</div></div></a>
+      <a href="product.html?p=ultiros-gold" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><picture style="display:block; width:100%; height:100%;"><source srcset="assets/products/ultiros-gold.webp" type="image/webp"><img src="assets/products/ultiros-gold.png" alt="Ultiros Gold" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"></picture></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Ultiros Gold</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Rosuvastatin FDC</div></div></a>
+      <a href="product.html?p=mylicare-d" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><picture style="display:block; width:100%; height:100%;"><source srcset="assets/products/mylicare-d.webp" type="image/webp"><img src="assets/products/mylicare-d.png" alt="Mylicare-D" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"></picture></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Mylicare-D</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">Nerve rejuvenator</div></div></a>
+      <a href="product.html?p=nuvinus-4g" style="text-decoration:none; background:#232269; border:1px solid #4846c6; border-radius:20px; overflow:hidden;" style-hover="border-color:#00b1ff;"><div style="background:#ffffff; aspect-ratio:16/11; overflow:hidden;"><picture style="display:block; width:100%; height:100%;"><source srcset="assets/products/nuvinus-4g.webp" type="image/webp"><img src="assets/products/nuvinus-4g.png" alt="Nuvinus-4G" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"></picture></div><div style="padding:16px 18px;"><div style="font:700 17px 'Manrope'; color:#ffffff;">Nuvinus-4G</div><div style="font:500 12px 'Manrope'; color:#b1a6f6; margin-top:3px;">50+ nutrient formula</div></div></a>
     </div>
   </div>
 

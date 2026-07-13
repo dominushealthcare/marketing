@@ -62,6 +62,13 @@ window.__DOMINUS_FORM_ENDPOINT
 See `forms-setup.md` before changing the endpoint. Keep both pages aligned if
 the endpoint changes.
 
+## Performance
+
+Product artwork is served through WebP-first `<picture>` markup with optimized
+PNG fallbacks. Keep the local `assets/fonts/` and `assets/vendor/` files in
+place so fonts and React load from the same GitHub Pages origin. Analytics are
+delayed until after initial load to protect first paint.
+
 ## Deployment
 
 GitHub Pages is configured to publish from the `main` branch root. Required
